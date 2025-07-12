@@ -1,44 +1,51 @@
 # Branch Structure
 
-This repository follows a modular branching strategy that mirrors the code architecture.
+This repository follows a simple, clean branching strategy.
 
 ## Current Branches
 
 ### Production
 - `main` - Production-ready code only
 
-### Integration
-- `develop` - Integration branch where all modules merge
+### Development
+- `develop` - All development work happens here
 
-### Module Development Branches
-- `develop-core-foundation` - Core Foundation implementation ✓ COMPLETE
-- `develop-vps-management` - VPS Management module (Week 3-4)
-- `develop-mailbox-management` - Mailbox Management module (Week 5-6)
-- `develop-warmup-engine` - Warmup Engine module (Week 7-8)
-- `develop-campaign-system` - Campaign System module (Week 9-10)
-- `develop-reporting` - Reporting module (Week 11-12)
-- `develop-integrations` - Integrations module (Week 13-14)
+## Development Workflow
 
-## Branch Naming Convention
+**IMPORTANT**: We do NOT create separate branches for each module. All module development happens directly in the `develop` branch.
 
-Due to Git limitations, we use `develop-module-name` instead of `develop/module-name`.
+### Why?
+1. Modules are already separated by directory structure
+2. Creating module branches parallel to develop defeats the purpose
+3. Simpler workflow with less branch management
+4. Changes are incremental and tested continuously
 
-## Workflow
+### Process
+1. Work directly on `develop` branch
+2. Implement modules one at a time
+3. Commit frequently with clear messages
+4. Test thoroughly before moving to next module
+5. When ready for production, merge `develop` → `main`
 
-1. Create module branch from develop: `git checkout -b develop-module-name`
-2. Implement module following architecture guidelines
-3. Test thoroughly
-4. Create PR to merge into develop
-5. After all modules tested together, merge develop → main
+## Current Status
 
-## Status
+- ✅ Core Foundation: Complete (in develop)
+- 📋 VPS Management: Next (Week 3-4)
+- 📋 Other modules: Pending
 
-- Core Foundation: Complete and ready for integration
-- Other modules: Pending implementation
+## Commit Convention
+
+```
+feat(module): description     # New features
+fix(module): description      # Bug fixes
+docs: description            # Documentation
+refactor(module): description # Code refactoring
+test(module): description    # Tests
+```
 
 ## Important Notes
 
-- Each module branch should only contain changes for that specific module
-- Follow module boundaries strictly
-- Test modules in isolation before integration
-- Maintain backward compatibility during migration
+- Work directly on `develop` branch
+- One module at a time
+- Test thoroughly before moving to next module
+- Keep commits focused and atomic
